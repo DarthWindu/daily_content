@@ -2,7 +2,11 @@
 
 ## Getting Started
 
-Clone the repository and run `npm install` inside of it.
+Clone or fork the repository and run `npm install` inside of it.
+
+Add your sites, wake-up time, and schedule to `config/default.json`, and you'll be up and running in no time!
+
+Run `npm start` in a terminal and leave it open.
 
 ### Default Behavior
 
