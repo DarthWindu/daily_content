@@ -20,9 +20,11 @@ The configuration logic is in `src/config.js`
 
 The default configuration file is `config/default.json`
 
+You also have the choice of spreading your configuration out into multiple files (as is done with `src/weekly/`) or consolidating them into one file (as is done in `src/monthly/`)
+
 #### Time Values
 
-Time is recognized in the format `hh:mm` or with the `wakeupKey` defined in `index.js`. By default, the `wakeupKey` is `wakeup`, and it refers to the wakeup time (set in `habits['wakeup_time']` in `config/default.json`)
+Time is recognized in the format `hh:mm` or with the `wakeupKey` defined in `src/index.js`. By default, the `wakeupKey` is `wakeup`, and it refers to the wakeup time (set in `habits['wakeup_time']` in `config/default.json`)
 
 ### Testing
 

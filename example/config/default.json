@@ -1,0 +1,245 @@
+{
+    "habits": {
+        // In military time 
+        "wakeup_time": "06:00"
+    },
+    "daily": {
+        // To disable a module, set "enabled" to false
+        "enabled": true,
+        "actions": [
+            {
+                "time": "wakeup",
+                "content": [
+                    // Daily content (Podcasts, blog homepage, news, reports, email, etc)
+                    // Should be urls with a http:// or https:// prefix
+                    "https://todoist.com",
+                    "https://www.wsj.com/",
+
+                    // You can find this @ "https://open.spotify.com/user/fbtxypblu60xio1v1r8h74zqt/playlist/0WatTXkyh9OgGatE329UV4?si=rA-D0choR26jrSQjcNzh7Q"
+                    "spotify:user:fbtxypblu60xio1v1r8h74zqt:playlist:0WatTXkyh9OgGatE329UV4"
+                    
+                ]
+            },
+            {
+                "time": "11:30",
+                "content": [
+                    "https://mail.google.com/mail/u/0/#inbox"
+                ]
+            }
+        ]
+    },
+    "weekly": {
+        "sunday": {
+            "enabled": true,
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": ["https://github.com/"]
+                },
+                {
+                    "time": "10:30",
+                    "content": [
+                        "http://hub.babson.edu", 
+                        // Gohan's Anger Theme Extended
+                        "https://www.youtube.com/watch?v=lmU9e67EfmI"
+                    ]
+                }
+            ]
+        },
+        "monday": {
+            "enabled": true,
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": ["http://www.engagingleader.com/podcast/"]
+                }
+            ]
+        },
+        "tuesday": {
+            "enabled": true,
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": ["https://hbr.org/2018/01/podcast-ideacast"]
+                },
+                {
+                    "time":"09:35",
+                    "content": ["http://rss.gcnlive.com/ceoShow/"]
+                }
+            ]
+        },
+        "wednesday": {
+            "enabled": true,
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": [
+                        "http://www.thebroadexperience.com/quick-list/", 
+
+                        // Vegeta's Royal Blue Theme Extended Orchestral Cover
+                        "https://www.youtube.com/watch?v=b8EW8YAoFjE"
+                    ]
+                }
+            ]
+        },
+        "thursday": {
+            "enabled": true,
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": ["https://hbr.org/2018/01/podcast-ideacast"]
+                }
+            ]
+        },
+        "friday": {
+            "enabled": true,
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": ["https://ecorner.stanford.edu/series/etl/"]
+                }
+            ]
+        },
+        "saturday": {
+            "enabled": true,
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": ["https://ecorner.stanford.edu/series/etl/"]
+                }
+            ]
+        }
+    },
+    "monthly": {
+        "each_month": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "01",
+                    "time": "wakeup",
+                    "content": []
+                }
+            ]
+        },
+        "jan": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
+        },
+        "feb": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
+        },
+        "mar": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
+        },
+        "apr": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
+        },
+        "may": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
+        },
+        "jun": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
+        },
+        "jul": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
+        },
+        "aug": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
+        },
+        "sep": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
+        },
+        "oct": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
+        },
+        "nov": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
+        },
+        "dec": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
+        }
+    }
+}

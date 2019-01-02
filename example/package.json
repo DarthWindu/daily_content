@@ -1,0 +1,38 @@
+{
+  "name": "daily_content",
+  "version": "1.0.0",
+  "description": "Serves your daily content",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarthWindu/daily_content.git"
+  },
+  "keywords": [
+    "morning",
+    "content",
+    "daily"
+  ],
+  "author": "Pujit Mehrotra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DarthWindu/daily_content/issues"
+  },
+  "homepage": "https://github.com/DarthWindu/daily_content#readme",
+  "dependencies": {
+    "colors": "^1.3.3",
+    "config": "^3.0.1",
+    "node-cron": "^2.0.3",
+    "opn": "^5.4.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
