@@ -9,13 +9,13 @@ describe('config', function () {
     })
 
     describe('daily', function () {
+
         it('is alive', function () {
             expect(config.has('daily')).true
         })
 
         it('is valid', function () {
             let wakeupTime = config.habits.wakeup_time
-
             let wakeupHour = wakeupTime.split(':')[0]
             let wakeUpMinute = wakeupTime.split(':')[1]
 
