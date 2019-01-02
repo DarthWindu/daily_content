@@ -1,7 +1,84 @@
 {
-    "Daily": {
+    "habits": {
+        // In military time 
+        "wakeup_time": "06:00"
+    },
+    "daily": {
+        // To disable, set "enabled" to false
+        "enabled": true,
         "content": [
             // Daily Podcasts or blog homepage
+            // Should be urls with a http:// or https:// prefix
+            "https://todoist.com"
         ]
+    },
+    "weekly": {
+        "sunday": {
+            "content": []
+        },
+        "monday": {
+            "content": []
+        },
+        "tuesday": {
+            "content": []
+        },
+        "wednesday": {
+            "content": []
+        },
+        "thursday": {
+            "content": []
+        },
+        "friday": {
+            "content": []
+        },
+        "saturday": {
+            "content": []
+        }
+    },
+    "monthly": {
+        "each_month":{
+            "actions":[
+                {
+                    "day": "01",
+                    "content": []
+                }
+            ]
+        },
+        "jan":{
+            "content":[]
+        },
+        "feb":{
+            "content":[]
+        },
+        "mar":{
+            "content":[]
+        },
+        "apr":{
+            "content":[]
+        },
+        "may":{
+            "content":[]
+        },
+        "jun":{
+            "content":[]
+        },
+        "jul":{
+            "content":[]
+        },
+        "aug":{
+            "content":[]
+        },
+        "sep":{
+            "content":[]
+        },
+        "oct":{
+            "content":[]
+        },
+        "nov":{
+            "content":[]
+        },
+        "dec":{
+            "content":[]
+        }
     }
 }
