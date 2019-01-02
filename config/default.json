@@ -10,15 +10,16 @@
             {
                 "time": "wakeup",
                 "content": [
-                    // Daily Podcasts or blog homepage
+                    // Daily content (Podcasts, blog homepage, news, reports, email, etc)
                     // Should be urls with a http:// or https:// prefix
-                    "https://todoist.com"
+                    "https://todoist.com",
+                    "https://www.wsj.com/"
                 ]
             },
             {
-                "time": "14:20",
+                "time": "11:30",
                 "content": [
-                    "https://todoist.com"
+                    "https://mail.google.com/mail/u/0/#inbox"
                 ]
             }
         ]
@@ -29,11 +30,11 @@
             "actions": [
                 {
                     "time": "wakeup",
-                    "content": ["https://todoist.com", "https://todoist.com"]
+                    "content": ["https://github.com/"]
                 },
                 {
-                    "time": "14:20",
-                    "content": ["https://todoist.com"]
+                    "time": "10:30",
+                    "content": ["https://about.gitlab.com/"]
                 }
             ]
         },
