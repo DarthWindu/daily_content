@@ -29,7 +29,7 @@
             "actions": [
                 {
                     "time": "wakeup",
-                    "content": ["https://todoist.com"]
+                    "content": ["https://todoist.com", "https://todoist.com"]
                 },
                 {
                     "time": "14:20",
@@ -105,51 +105,123 @@
         },
         "jan": {
             "enabled": true,
-            "content": []
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
         },
         "feb": {
             "enabled": true,
-            "content": []
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
         },
         "mar": {
             "enabled": true,
-            "content": []
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
         },
         "apr": {
             "enabled": true,
-            "content": []
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
         },
         "may": {
             "enabled": true,
-            "content": []
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
         },
         "jun": {
             "enabled": true,
-            "content": []
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
         },
         "jul": {
             "enabled": true,
-            "content": []
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
         },
         "aug": {
             "enabled": true,
-            "content": []
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
         },
         "sep": {
             "enabled": true,
-            "content": []
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
         },
         "oct": {
             "enabled": true,
-            "content": []
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
         },
         "nov": {
             "enabled": true,
-            "content": []
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
         },
         "dec": {
             "enabled": true,
-            "content": []
+            "actions": [
+                {
+                    "day": "04",
+                    "time": "13:00",
+                    "content": []
+                }
+            ]
         }
     }
 }

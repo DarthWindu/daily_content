@@ -36,7 +36,8 @@ function getCronConfig() {
             sat: `${wakeUpMinute} ${wakeupHour} * * sat`,
         },
         makeDaily: makeDaily,
-        makeWeekly: makeWeekly
+        makeWeekly: makeWeekly,
+        makeMonthly: makeMonthly
     }
 }
 
@@ -53,4 +54,19 @@ function makeDaily(time) {
 function makeWeekly(time, day) {
     var timeComponents = util.getMinAndHourFromTime(time)
     return `${timeComponents[0]} ${timeComponents[1]} * * ${day}`
+}
+
+/**
+ * Returns a cron job frequency/time indicator based on parameters
+ * 
+ * Pass `*` for day to yield an indicator for every day of the month
+ * 
+ * You may use steps and ranges.
+ * @param {*} month 
+ * @param {*} day 
+ * @param {*} time 
+ */
+function makeMonthly(month, day, time, weekday = '*') {
+    var timeComponents = util.getMinAndHourFromTime(time)
+    return `${timeComponents[0]} ${timeComponents[1]} ${day} ${month} ${weekday}`
 }

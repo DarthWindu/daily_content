@@ -46,12 +46,25 @@ describe('config', function () {
 })
 
 describe('daily', function () {
-    it('should have 2 action', function () {
+    it('should have 2 actions', function () {
         expect(config.daily.actions.length).to.be.equal(2)
     })
 
-    it('should open todoist', function () {
+    it('(first action) should have 1 content', function () {
         expect(config.daily.actions[0].content.length).to.be.equal(1)
-        util.openContent(config.daily.actions[0].content, null, null)
+        // util.openContent(config.daily.actions[0].content, null, null)
     })
+})
+
+describe('weekly', function () {
+    it('(sunday) should have 2 actions', function () {
+        expect(config.weekly.sunday.actions.length).to.be.equal(2)
+    })
+    it('(first action) should have 2 content', function () {
+        expect(config.weekly.sunday.actions[0].content.length).to.be.equal(2)
+    })
+})
+
+describe('monthly', function () {
+    
 })

@@ -11,11 +11,15 @@ var colors = require('./util/colors').init() // init color settings and get colo
 let util = require('./util/util')
 let daily = require('./daily')
 let weekly = require('./weekly/weekly')
+let monthly = require('./monthly/monthly')
 let wakeUpKey = "wakeup"
+let eachMonthKey = "each_month"
 
 // Configure cron jobs
 configureDaily()
+console.log() // For spacing
 configureWeekly()
+configureMonthly()
 
 
 // ------ Functions ------
@@ -26,7 +30,7 @@ configureWeekly()
 function configureDaily() {
 
     if (defaultConfig.daily.enabled) {
-        
+
         /** Holds the cron time/frequency indicator */
         let cronCfg
 
@@ -58,6 +62,7 @@ function configureWeekly() {
     configureWeekday('thu')
     configureWeekday('fri')
     configureWeekday('sat')
+    console.log() // For spacing
 }
 
 /**
@@ -100,4 +105,51 @@ function configureWeekday(taskDay) {
     } else {
         util.warn(`${taskDay} is disabled!`)
     }
+}
+
+function configureMonthly() {
+    configureMonth('jan')
+    configureMonth('feb')
+    configureMonth('mar')
+    configureMonth('apr')
+    configureMonth('may')
+    configureMonth('jun')
+    configureMonth('jul')
+    configureMonth('aug')
+    configureMonth('sep')
+    configureMonth('oct')
+    configureMonth('nov')
+    configureMonth('dec')
+    configureMonth('each_month')
+    console.log() // For spacing
+}
+
+function configureMonth(month) {
+
+    let monthCfg = defaultConfig.monthly[month]
+    let cronCfg
+    let monthIndicator
+
+    if (monthCfg.enabled) {
+
+        if (month != eachMonthKey) {
+            monthIndicator = month
+        } else {
+            monthIndicator = '*' // every month
+        }
+
+        monthCfg.actions.forEach(element => {
+            if (element.time != wakeUpKey) {
+                cronCfg = cronConfig.makeMonthly(monthIndicator, element.day, element.time)
+            } else {
+                cronCfg = cronConfig.makeMonthly(monthIndicator, element.day, config.wakeupTime)
+            }
+
+            util.log(`${month} cron config: ${cronCfg}`)
+            cron.schedule(cronCfg, () => {
+                util.openContent(element.content, monthly[month].onCompleted, monthly[month].onRejected)
+            })
+        });   
+    }
+
 }
