@@ -1,56 +1,94 @@
 // Load our config
-var config = require('./config.js')()
+var config = require('./config.js')
+let defaultConfig = config.default()
+let cronConfig = config.cron()
 
 // Load dependencies
-const opn = require('opn')
 var cron = require('node-cron');
-var colors = require('./colors').init();
+var colors = require('./util/colors').init() // init color settings and get colors object
 
 // Set logging theme
 
 // Load custom actions
-let daily = require('./daily.js')
+let util = require('./util/util')
+let daily = require('./daily')
+let weekly = require('./weekly/weekly')
 
+// Load global data 
+
+/* let wakeupTime = config.habits.wakeup_time
+let wakeupHour = wakeupTime.split(':')[0]
+let wakeUpMinute = wakeupTime.split(':')[1]
+
+let cronConfig = {
+    daily: `${wakeUpMinute} ${wakeupHour} * * *`,
+    weekly: {
+        sun: `${wakeUpMinute} ${wakeupHour} * * sun`,
+        mon: `${wakeUpMinute} ${wakeupHour} * * mon`,
+        tue: `${wakeUpMinute} ${wakeupHour} * * tue`,
+        wed: `${wakeUpMinute} ${wakeupHour} * * wed`,
+        thu: `${wakeUpMinute} ${wakeupHour} * * thu`,
+        fri: `${wakeUpMinute} ${wakeupHour} * * fri`,
+        sat: `${wakeUpMinute} ${wakeupHour} * * sat`,
+    }
+} */
 
 // Configure cron jobs
+// daily()
 configureDaily()
+configureWeekly()
 
+/**
+ * Configures the daily cron job
+ */
 function configureDaily() {
-    let wakeupTime = config.habits.wakeup_time
 
-    let wakeupHour = wakeupTime.split(':')[0]
-    let wakeUpMinute = wakeupTime.split(':')[1]
+    if (defaultConfig.daily.enabled) {
 
-    // At wakeupTime every day
-    let dailyCronConfig = `${wakeUpMinute} ${wakeupHour} * * *`
+        util.log(`daily cron cnfg: ${cronConfig.daily}`)
 
-    if (config.daily.enabled) {
-
-        _log('Daily Module is enabled')
-        _log(`Daily Cron Config: ${dailyCronConfig}`)
-
-        cron.schedule(dailyCronConfig, () => {
-            daily()
+        cron.schedule(cronConfig.daily, () => {
+            util.openContent(daily.content, daily.onCompleted, daily.onRejected)
         });
     } else {
-        _warn('Daily Module is disabled')
+        util.warn('Daily Module is disabled!')
     }
 }
 
-function _log(message) {
-    console.log(_getLogPrefix() + message.log)
+/**
+ * Configures every weekday
+ */
+function configureWeekly() {
+    configureWeekday('sun')
+    configureWeekday('mon')
+    configureWeekday('tue')
+    configureWeekday('wed')
+    configureWeekday('thu')
+    configureWeekday('fri')
+    configureWeekday('sat')
 }
 
-function _warn(message) {
-    console.log(_getLogPrefix() + message.magenta);   
-}
+/**
+ * Configures a cron job for a weekday defined by `taskDay`
+ * 
+ * Ensure that `taskDay` is one of the export keys in `weekly/weekly.js`
+ * @param {*} taskDay 
+ */
+function configureWeekday(taskDay) {
 
-function _getLogPrefix() {
-    // Replace the character `T` in the Date.toString with two spaces
-    let dateTime = new Date().toJSON().slice(0, 19).replace(/[T]/g, '  ')
+    let defaultConfigDay = util.weekdayMap[taskDay] 
 
-    // two spaces on end for readability
-    let prefix = `[${dateTime}]  `.grey
+    if (defaultConfig.weekly[defaultConfigDay].enabled) {
 
-    return prefix
+        let weekday = weekly[taskDay]
+
+        util.log(`${taskDay} cron config: ${cronConfig.weekly[taskDay]}`)
+
+        cron.schedule(cronConfig.weekly[taskDay], () => {
+            util.openContent(weekday.content, weekday.onCompleted, weekday.onRejected)
+        })
+
+    } else {
+        util.warn(`${taskDay} is disabled!`)
+    }
 }

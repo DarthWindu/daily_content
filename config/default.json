@@ -4,7 +4,7 @@
         "wakeup_time": "06:00"
     },
     "daily": {
-        // To disable, set "enabled" to false
+        // To disable a module, set "enabled" to false
         "enabled": true,
         "content": [
             // Daily Podcasts or blog homepage
@@ -14,29 +14,37 @@
     },
     "weekly": {
         "sunday": {
+            "enabled": true,
             "content": []
         },
         "monday": {
+            "enabled": true,
             "content": []
         },
         "tuesday": {
+            "enabled": true,
             "content": []
         },
         "wednesday": {
+            "enabled": true,
             "content": []
         },
         "thursday": {
+            "enabled": true,
             "content": []
         },
         "friday": {
-            "content": []
+            "enabled": true,
+            "content": ["https://todoist.com"]
         },
         "saturday": {
+            "enabled": true,
             "content": []
         }
     },
     "monthly": {
         "each_month":{
+            "enabled": true,
             "actions":[
                 {
                     "day": "01",
@@ -45,39 +53,51 @@
             ]
         },
         "jan":{
+            "enabled": true,
             "content":[]
         },
         "feb":{
+            "enabled": true,
             "content":[]
         },
         "mar":{
+            "enabled": true,
             "content":[]
         },
         "apr":{
+            "enabled": true,
             "content":[]
         },
         "may":{
+            "enabled": true,
             "content":[]
         },
         "jun":{
+            "enabled": true,
             "content":[]
         },
         "jul":{
+            "enabled": true,
             "content":[]
         },
         "aug":{
+            "enabled": true,
             "content":[]
         },
         "sep":{
+            "enabled": true,
             "content":[]
         },
         "oct":{
+            "enabled": true,
             "content":[]
         },
         "nov":{
+            "enabled": true,
             "content":[]
         },
         "dec":{
+            "enabled": true,
             "content":[]
         }
     }

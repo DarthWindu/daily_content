@@ -7,6 +7,8 @@ let initialize = function () {
     return colors;
 }
 
+
+
 module.exports = {
-    init: initialize
+    init: initialize,
 }

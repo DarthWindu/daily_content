@@ -1,25 +1,26 @@
 // Load our config
-let config = require('./config.js')();
+let config = require('./config.js').default();
 const opn = require('opn');
 
-let dailyContent = config.daily.content
+let content = config.daily.content
+const taskType = 'daily'
 
-let daily = function () {
-    let tabs = []
-
-    dailyContent.forEach(element => {
-        tabs.push(opn(element))
-    });
-
-    Promise.all(tabs).then(_onCompleted, _onCompleted)
+let onCompleted = function () {
+    // Here is an example of replacing default behavior
+    
+    // util.default.onCompleted(taskType)
+    console.log('Opened daily tabs'.grey)
 }
 
-function _onCompleted() {
-    console.log('Opened all tabs')
-}
+let onRejected = function () {
+    // Here is an example of replacing default behavior
 
-function _onRejected() {
-    console.log('FAILED to open all tabs')
-}
+    // util.default.onRejected(taskType)
+    console.log('FAILED to open all daily tabs')
+} 
 
-module.exports = daily
+module.exports = {
+    content: content,
+    onCompleted: onCompleted,
+    onRejected: onRejected
+}
