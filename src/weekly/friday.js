@@ -1,9 +1,6 @@
 let config = require('../config.js').default();
 const util = require('../util/util');
 
-// Default content
-let content = config.weekly.friday.actions[0].content
-
 let taskType = 'friday'
 
 // util.openContent(content, _onCompleted, _onRejected)
@@ -20,7 +17,6 @@ let onRejected = function () {
 } 
 
 module.exports = {
-    content: content,
     onCompleted: onCompleted,
     onRejected: onRejected
 }

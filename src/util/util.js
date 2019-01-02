@@ -50,6 +50,20 @@ function _getLogPrefix() {
     return prefix
 }
 
+/**
+ * Returns an array with two elements, the number of minutes and the number of hours, by splitting `time`
+ * 
+ * `time = '16:00'` would yield `[0, 16]`
+ * @param {*} time 
+ */
+function getMinAndHourFromTime(time) {
+    let minutes = time.split(':')[1]
+    let hours = time.split(':')[0]
+    
+    // Order mirrors cron configuration
+    return [minutes, hours]
+}
+
 let weekdayMap = {
     sun: 'sunday',
     mon: 'monday',
@@ -76,5 +90,6 @@ module.exports = {
         onCompleted: defaultOnCompleted,
         onRejected: defaultOnRejected
     },
-    weekdayMap: weekdayMap
+    weekdayMap: weekdayMap,
+    getMinAndHourFromTime: getMinAndHourFromTime
 }

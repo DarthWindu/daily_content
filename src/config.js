@@ -1,4 +1,5 @@
 var config = require('config');
+var util = require('./util/util')
 
 let wakeupTime = config.habits.wakeup_time
 let wakeupHour = wakeupTime.split(':')[0]
@@ -33,6 +34,23 @@ function getCronConfig() {
             thu: `${wakeUpMinute} ${wakeupHour} * * thu`,
             fri: `${wakeUpMinute} ${wakeupHour} * * fri`,
             sat: `${wakeUpMinute} ${wakeupHour} * * sat`,
-        }
+        },
+        makeDaily: makeDaily,
+        makeWeekly: makeWeekly
     }
+}
+
+function makeDaily(time) {
+    var timeComponents = util.getMinAndHourFromTime(time)
+    return `${timeComponents[0]} ${timeComponents[1]} * * *`
+}
+
+/**
+ * Where `time` is `hh:mm` and day is 3-letter indicator of a weekday (or 0-7).
+ * @param {*} time 
+ * @param {*} day 
+ */
+function makeWeekly(time, day) {
+    var timeComponents = util.getMinAndHourFromTime(time)
+    return `${timeComponents[0]} ${timeComponents[1]} * * ${day}`
 }

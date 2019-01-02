@@ -46,8 +46,8 @@ describe('config', function () {
 })
 
 describe('daily', function () {
-    it('should have 1 action', function () {
-        expect(config.daily.actions.length).to.be.equal(1)
+    it('should have 2 action', function () {
+        expect(config.daily.actions.length).to.be.equal(2)
     })
 
     it('should open todoist', function () {

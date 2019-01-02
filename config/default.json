@@ -14,6 +14,12 @@
                     // Should be urls with a http:// or https:// prefix
                     "https://todoist.com"
                 ]
+            },
+            {
+                "time": "14:20",
+                "content": [
+                    "https://todoist.com"
+                ]
             }
         ]
     },
@@ -23,7 +29,11 @@
             "actions": [
                 {
                     "time": "wakeup",
-                    "content": []
+                    "content": ["https://todoist.com"]
+                },
+                {
+                    "time": "14:20",
+                    "content": ["https://todoist.com"]
                 }
             ]
         },

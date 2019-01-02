@@ -13,6 +13,7 @@ var colors = require('./util/colors').init() // init color settings and get colo
 let util = require('./util/util')
 let daily = require('./daily')
 let weekly = require('./weekly/weekly')
+let wakeUpKey = "wakeup"
 
 // Load global data 
 
@@ -44,11 +45,19 @@ configureWeekly()
 function configureDaily() {
 
     if (defaultConfig.daily.enabled) {
+        let cronCfg
 
-        util.log(`daily cron cnfg: ${cronConfig.daily}`)
+        defaultConfig.daily.actions.forEach(element => {
+            if (element.time != wakeUpKey) {
+                cronCfg = cronConfig.makeDaily(element.time)
+            } else {
+                cronCfg = cronConfig.daily
+            }
 
-        cron.schedule(cronConfig.daily, () => {
-            util.openContent(daily.content, daily.onCompleted, daily.onRejected)
+            util.log(`daily cron cnfg: ${cronCfg}`)
+            cron.schedule(cronCfg, () => {
+                util.openContent(element.content, daily.onCompleted, daily.onRejected)
+            });
         });
     } else {
         util.warn('Daily Module is disabled!')
@@ -76,17 +85,35 @@ function configureWeekly() {
  */
 function configureWeekday(taskDay) {
 
+    // maps abbreviation to unabbreviated day
     let defaultConfigDay = util.weekdayMap[taskDay] 
 
-    if (defaultConfig.weekly[defaultConfigDay].enabled) {
+    // gets the config for taskDay from default.json
+    let dayCfg = defaultConfig.weekly[defaultConfigDay]
 
+    if (dayCfg.enabled) {
+
+        /** Holds the cron time/frequency indicator */
+        let cronCfg;
+
+        /** Holds the onCompleted and onRejected callbacks */
         let weekday = weekly[taskDay]
 
-        util.log(`${taskDay} cron config: ${cronConfig.weekly[taskDay]}`)
+        dayCfg.actions.forEach(element => {
 
-        cron.schedule(cronConfig.weekly[taskDay], () => {
-            util.openContent(weekday.content, weekday.onCompleted, weekday.onRejected)
-        })
+            if (element.time != wakeUpKey) {
+                cronCfg = cronConfig.makeWeekly(element.time, taskDay)
+            } else {
+                cronCfg = cronConfig.weekly[taskDay]
+            }
+
+            util.log(`${taskDay} cron config: ${cronCfg}`)
+
+            cron.schedule(cronCfg, () => {
+                util.openContent(element.content, weekday.onCompleted, weekday.onRejected)
+            })
+
+        });
 
     } else {
         util.warn(`${taskDay} is disabled!`)

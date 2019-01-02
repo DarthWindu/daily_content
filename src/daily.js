@@ -2,7 +2,6 @@
 let config = require('./config.js').default();
 const opn = require('opn');
 
-let content = config.daily.content
 const taskType = 'daily'
 
 let onCompleted = function () {
@@ -20,7 +19,6 @@ let onRejected = function () {
 } 
 
 module.exports = {
-    content: content,
     onCompleted: onCompleted,
     onRejected: onRejected
 }
