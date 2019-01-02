@@ -5,9 +5,7 @@ let cronConfig = config.cron()
 
 // Load dependencies
 var cron = require('node-cron');
-var colors = require('./util/colors').init() // init color settings and get colors object
-
-// Set logging theme
+var colors = require('./util/colors').init() // init color settings and get colors object | Make sure this is required before util, daily, weekly, and monthly!
 
 // Load custom actions
 let util = require('./util/util')
@@ -15,29 +13,12 @@ let daily = require('./daily')
 let weekly = require('./weekly/weekly')
 let wakeUpKey = "wakeup"
 
-// Load global data 
-
-/* let wakeupTime = config.habits.wakeup_time
-let wakeupHour = wakeupTime.split(':')[0]
-let wakeUpMinute = wakeupTime.split(':')[1]
-
-let cronConfig = {
-    daily: `${wakeUpMinute} ${wakeupHour} * * *`,
-    weekly: {
-        sun: `${wakeUpMinute} ${wakeupHour} * * sun`,
-        mon: `${wakeUpMinute} ${wakeupHour} * * mon`,
-        tue: `${wakeUpMinute} ${wakeupHour} * * tue`,
-        wed: `${wakeUpMinute} ${wakeupHour} * * wed`,
-        thu: `${wakeUpMinute} ${wakeupHour} * * thu`,
-        fri: `${wakeUpMinute} ${wakeupHour} * * fri`,
-        sat: `${wakeUpMinute} ${wakeupHour} * * sat`,
-    }
-} */
-
 // Configure cron jobs
-// daily()
 configureDaily()
 configureWeekly()
+
+
+// ------ Functions ------
 
 /**
  * Configures the daily cron job
@@ -45,6 +26,8 @@ configureWeekly()
 function configureDaily() {
 
     if (defaultConfig.daily.enabled) {
+        
+        /** Holds the cron time/frequency indicator */
         let cronCfg
 
         defaultConfig.daily.actions.forEach(element => {
@@ -65,7 +48,7 @@ function configureDaily() {
 }
 
 /**
- * Configures every weekday
+ * Configures every weekdayContainer
  */
 function configureWeekly() {
     configureWeekday('sun')
@@ -97,7 +80,7 @@ function configureWeekday(taskDay) {
         let cronCfg;
 
         /** Holds the onCompleted and onRejected callbacks */
-        let weekday = weekly[taskDay]
+        let weekdayContainer = weekly[taskDay]
 
         dayCfg.actions.forEach(element => {
 
@@ -108,9 +91,8 @@ function configureWeekday(taskDay) {
             }
 
             util.log(`${taskDay} cron config: ${cronCfg}`)
-
             cron.schedule(cronCfg, () => {
-                util.openContent(element.content, weekday.onCompleted, weekday.onRejected)
+                util.openContent(element.content, weekdayContainer.onCompleted, weekdayContainer.onRejected)
             })
 
         });
