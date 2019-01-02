@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "Serves your daily content",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node src/index.js"
   },
   "repository": {
@@ -21,5 +24,12 @@
   "bugs": {
     "url": "https://github.com/DarthWindu/daily_content/issues"
   },
-  "homepage": "https://github.com/DarthWindu/daily_content#readme"
+  "homepage": "https://github.com/DarthWindu/daily_content#readme",
+  "dependencies": {
+    "config": "^3.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
 }
