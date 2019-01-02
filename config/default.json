@@ -6,99 +6,140 @@
     "daily": {
         // To disable a module, set "enabled" to false
         "enabled": true,
-        "content": [
-            // Daily Podcasts or blog homepage
-            // Should be urls with a http:// or https:// prefix
-            "https://todoist.com"
+        "actions": [
+            {
+                "time": "wakeup",
+                "content": [
+                    // Daily Podcasts or blog homepage
+                    // Should be urls with a http:// or https:// prefix
+                    "https://todoist.com"
+                ]
+            }
         ]
     },
     "weekly": {
         "sunday": {
             "enabled": true,
-            "content": []
-        },
-        "monday": {
-            "enabled": true,
-            "content": []
-        },
-        "tuesday": {
-            "enabled": true,
-            "content": []
-        },
-        "wednesday": {
-            "enabled": true,
-            "content": []
-        },
-        "thursday": {
-            "enabled": true,
-            "content": []
-        },
-        "friday": {
-            "enabled": true,
-            "content": ["https://todoist.com"]
-        },
-        "saturday": {
-            "enabled": true,
-            "content": []
-        }
-    },
-    "monthly": {
-        "each_month":{
-            "enabled": true,
-            "actions":[
+            "actions": [
                 {
-                    "day": "01",
+                    "time": "wakeup",
                     "content": []
                 }
             ]
         },
-        "jan":{
+        "monday": {
             "enabled": true,
-            "content":[]
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": []
+                }
+            ]
         },
-        "feb":{
+        "tuesday": {
             "enabled": true,
-            "content":[]
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": []
+                }
+            ]
         },
-        "mar":{
+        "wednesday": {
             "enabled": true,
-            "content":[]
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": []
+                }
+            ]
         },
-        "apr":{
+        "thursday": {
             "enabled": true,
-            "content":[]
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": []
+                }
+            ]
         },
-        "may":{
+        "friday": {
             "enabled": true,
-            "content":[]
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": []
+                }
+            ]
         },
-        "jun":{
+        "saturday": {
             "enabled": true,
-            "content":[]
+            "actions": [
+                {
+                    "time": "wakeup",
+                    "content": []
+                }
+            ]
+        }
+    },
+    "monthly": {
+        "each_month": {
+            "enabled": true,
+            "actions": [
+                {
+                    "day": "01",
+                    "time": "wakeup",
+                    "content": []
+                }
+            ]
         },
-        "jul":{
+        "jan": {
             "enabled": true,
-            "content":[]
+            "content": []
         },
-        "aug":{
+        "feb": {
             "enabled": true,
-            "content":[]
+            "content": []
         },
-        "sep":{
+        "mar": {
             "enabled": true,
-            "content":[]
+            "content": []
         },
-        "oct":{
+        "apr": {
             "enabled": true,
-            "content":[]
+            "content": []
         },
-        "nov":{
+        "may": {
             "enabled": true,
-            "content":[]
+            "content": []
         },
-        "dec":{
+        "jun": {
             "enabled": true,
-            "content":[]
+            "content": []
+        },
+        "jul": {
+            "enabled": true,
+            "content": []
+        },
+        "aug": {
+            "enabled": true,
+            "content": []
+        },
+        "sep": {
+            "enabled": true,
+            "content": []
+        },
+        "oct": {
+            "enabled": true,
+            "content": []
+        },
+        "nov": {
+            "enabled": true,
+            "content": []
+        },
+        "dec": {
+            "enabled": true,
+            "content": []
         }
     }
 }

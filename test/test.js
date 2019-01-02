@@ -1,7 +1,8 @@
 // Load our config
-var config = require('../src/config')()
+var config = require('../src/config').default()
 var expect = require('chai').expect;
 const cron = require('node-cron');
+var util = require('../src/util/util')
 
 describe('config', function () {
     it('is alive', function () {
@@ -41,5 +42,16 @@ describe('config', function () {
         })
 
         it('is valid', function () {})
+    })
+})
+
+describe('daily', function () {
+    it('should have 1 action', function () {
+        expect(config.daily.actions.length).to.be.equal(1)
+    })
+
+    it('should open todoist', function () {
+        expect(config.daily.actions[0].content.length).to.be.equal(1)
+        util.openContent(config.daily.actions[0].content, null, null)
     })
 })
